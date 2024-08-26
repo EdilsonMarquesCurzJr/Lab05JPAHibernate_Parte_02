@@ -14,7 +14,4 @@ public class CategoriaFrete implements EntidadeBase{
     private String descricao;
     private float percentualAdicional;
 
-    @ManyToOne
-    @JoinColumn(name = "frete_id")
-    private Frete frete;
 }
