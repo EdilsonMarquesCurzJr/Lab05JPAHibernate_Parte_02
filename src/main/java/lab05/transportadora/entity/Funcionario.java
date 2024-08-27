@@ -19,4 +19,9 @@ public class Funcionario extends PessoaFisica implements EntidadeBase{
     @JoinColumn(name = "filial_id")
     private Filial filial;
 
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Frete> fretes;
+
 }
+
+

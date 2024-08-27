@@ -13,7 +13,7 @@ public class Distancia implements EntidadeBase{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private int quilometros;
+    private float quilometros;
 
     @ManyToOne
     @JoinColumn(name = "cidade_origem_id")

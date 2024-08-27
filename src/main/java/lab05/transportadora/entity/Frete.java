@@ -40,6 +40,10 @@ public class Frete implements EntidadeBase{
     @JoinColumn(name = "cidadeDestino_id")
     private Cidade cidadeDestino;
 
+    @ManyToOne
+    @JoinColumn(name = "funcionario")
+    private Funcionario funcionario;
+
 
 
     public BigDecimal calcularValorFrete() {

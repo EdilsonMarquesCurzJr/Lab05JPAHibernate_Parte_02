@@ -1,4 +1,4 @@
-package lab05.transportadora.Repository;
+package lab05.transportadora.repository;
 
 import jakarta.persistence.EntityManager;
 import lab05.transportadora.entity.Frete;
@@ -29,5 +29,11 @@ public class FreteRepository {
 
     public void remove(Frete frete) {
         daoGenerico.remove(frete);
+    }
+
+    public List<Frete> listaFretesPorClienteId(Integer clienteId) {
+        return manager.createQuery("SELECT f FROM Frete f WHERE f.cliente.id = :clienteId", Frete.class)
+                .setParameter("clienteId", clienteId)
+                .getResultList();
     }
 }

@@ -1,4 +1,4 @@
-package lab05.transportadora.Repository;
+package lab05.transportadora.repository;
 
 import jakarta.persistence.EntityManager;
 import lab05.transportadora.entity.CategoriaFrete;
