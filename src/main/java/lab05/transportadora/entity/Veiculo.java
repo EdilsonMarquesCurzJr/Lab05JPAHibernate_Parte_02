@@ -1,13 +1,16 @@
 package lab05.transportadora.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-public class Veiculo implements EntidadeBase{
+@NoArgsConstructor @AllArgsConstructor
+public class Veiculo implements EntidadeBase {
 
     @Id
     private String placa;
@@ -20,8 +23,16 @@ public class Veiculo implements EntidadeBase{
     private Filial filial;
 
 
-    @Override
     public Integer getId() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", tipoVeiculo=" + tipoVeiculo +
+                ", filial=" + filial +
+                '}';
     }
 }

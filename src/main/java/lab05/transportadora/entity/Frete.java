@@ -1,14 +1,19 @@
 package lab05.transportadora.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Data
+@Data @Builder
+@NoArgsConstructor @AllArgsConstructor
 public class Frete implements EntidadeBase{
 
     @Id
@@ -44,9 +49,4 @@ public class Frete implements EntidadeBase{
     @JoinColumn(name = "funcionario")
     private Funcionario funcionario;
 
-
-
-    public BigDecimal calcularValorFrete() {
-        return this.valorKmRodado;
-    }
 }

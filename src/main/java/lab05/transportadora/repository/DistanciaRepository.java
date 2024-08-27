@@ -12,7 +12,7 @@ public class DistanciaRepository {
 
     public DistanciaRepository(EntityManager manager) {
         this.manager = manager;
-        daoGenerico = new DAO<Distancia>(manager);
+        daoGenerico = new DAO<>(manager);
     }
 
     public Distancia buscaPor(Integer id) {
@@ -25,12 +25,16 @@ public class DistanciaRepository {
     }
 
     public Distancia distanciaEntreAB(Cidade a, Cidade b) {
-        return this.manager.createQuery(
-            "SELECT d FROM Distancia d WHERE d.origem = :cidadeOrigem AND d.destino = :cidadeDestino",
-            Distancia.class)
-                .setParameter("cidadeOrigem", a)
-                .setParameter("cidadeDestino", b)
-                .getSingleResult();
+        try {
+            return this.manager.createQuery(
+                "SELECT d FROM Distancia d WHERE d.origem = :cidadeOrigem AND d.destino = :cidadeDestino",
+                Distancia.class)
+                    .setParameter("cidadeOrigem", a)
+                    .setParameter("cidadeDestino", b)
+                    .getSingleResult();
+        } catch (jakarta.persistence.NoResultException e) {
+            return null;
+        }
     }
 
     public Distancia salvaOuAtualiza(Distancia distancia) {

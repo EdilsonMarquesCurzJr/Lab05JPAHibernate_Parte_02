@@ -1,17 +1,21 @@
 package lab05.transportadora.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import jakarta.persistence.*;
+import lombok.experimental.SuperBuilder;
 
 
-@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
+@EqualsAndHashCode(callSuper = true)
 @PrimaryKeyJoinColumn(name = "pessoa_id")
+@SuperBuilder
+@NoArgsConstructor
 public class Cliente extends PessoaFisica {
     private String contato;
     private boolean ativo;
 
 }
+
+
